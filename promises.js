@@ -6,6 +6,14 @@ var baseURI =" https://www.weddingwire.com/lighting-decor"
 
 getVendorContactAsync()
 .then(function(data){
+    fs.writeFile('./vendorcontact.json', JSON.stringify(data, null, 4), (err)=>{
+        if (err) {
+            console.error(err);
+            return;
+        };
+        console.log("File Has been Created");
+
+    });
     console.log(data);
 })
 .catch(function(err){
@@ -15,19 +23,20 @@ getVendorContactAsync()
 
 function getVendorEndPointsAsync(){
     return new Promise(function(resolve, reject){
-        request(baseURI, function(resolve, reject){
+        request(baseURI, function(error, response, body){
 
             if (!error){
  
                 var $ = cheerio.load(body);
  
                 var storage =[];
-                links =$('div.directory-item-content a.item-title')
-                links.each(function(i, elem){
-                    var vendor =$(this).attr('href');
-                    storage.push(vendor);
-             });
-             resolve(links);
+                links = $('div.directory-item-content a.item-title');
+                 links.each(function(i, link){
+                      var urlText= $(link).attr("href");
+                      storage.push(urlText);
+                  });
+                var storageUrl = storage;
+             resolve(storageUrl);
             }else{
                 reject('SHITTTTTTT ');
             }
@@ -37,12 +46,12 @@ function getVendorEndPointsAsync(){
 
 function getVendorContactAsync(){
     return getVendorEndPointsAsync().then(function (endpoints){
+        
         var promises = endpoints.map(function (endpoint){
             
             return new Promise(function (resolve, reject){
 
-            
-                request(url,function(error, response, body){
+                request(endpoint, function(error, response, body){
                     if(!error) {
                         var $ = cheerio.load(body);
                         var companyName =$('.storefrontHeader__title');
