@@ -29,12 +29,13 @@ request(url, function(error, response, body){
   links = $('div.state a.strong:nth-child(2)');
 
   links.each(function(i, link){
-    //   var stateText=$(link).attr("title");
+      var stateText=$(link).attr("title");
       var urlText= $(link).attr("href");
-    //   var stateUrl={
-    //       url:"www.weddingwire.com"+urlText,
-    //   }
-      linksList.push("www.weddingwire.com"+urlText);
+      var stateUrl={
+          url:"www.weddingwire.com"+urlText,
+          title:stateText
+      }
+      linksList.push(stateUrl);
       
    });
    
@@ -43,15 +44,15 @@ request(url, function(error, response, body){
 }
 getLinks(function(err,links){
     if(err) return console.log(err);
-    // this is where we open the stream and write the JSON file
-    // fs.writeFile('./statelinks.json', JSON.stringify(links, null, 4), (err)=>{
-    //     if (err) {
-    //         console.error(err);
-    //         return;
-    //     };
-    //     console.log("File Has been Created");
+    this is where we open the stream and write the JSON file
+    fs.writeFile('./statelinks.json', JSON.stringify(links, null, 4), (err)=>{
+        if (err) {
+            console.error(err);
+            return;
+        };
+        console.log("File Has been Created");
 
-    // });
+    });
     console.log(links);
 
 });
