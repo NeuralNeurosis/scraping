@@ -2,11 +2,11 @@ var request = require('request');
 var cheerio = require('cheerio');
 var fs = require('fs-extra');
 
-var baseURI =" https://www.weddingwire.com/lighting-decor"
-
+var baseURI =" https://www.weddingwire.com/lighting-decor?page="+ pageNum
+var pageNum= "2";
 getVendorContactAsync()
 .then(function(data){
-    fs.writeFile('./vendorcontact.json', JSON.stringify(data, null, 4), (err)=>{
+    fs.writeFile('./returned data/promises/vc2.json', JSON.stringify(data, null, 4), (err)=>{
         if (err) {
             console.error(err);
             return;
