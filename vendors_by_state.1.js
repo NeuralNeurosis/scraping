@@ -1,14 +1,12 @@
 // tutorial 2 https://www.youtube.com/watch?v=JEnGFGckk8A&list=PLGquJ_T_JBMSfMO7yPR7kkZCJc8xQg0Gf&index=2
 
-var express = require('express');
-var path = require('path');
-var app = express();
 var cheerio = require('cheerio');
 var fs = require('fs-extra');
-var Q =require('Q')
 var request = require('request');
-var port = 8080;
-
+var firebase = require('firebase').initializeApp({
+  serviceAccount:"./ww-vendors-03b87c67e2de.json",
+  databaseURL:"https://weddingwire-scrape.firebaseio.com/"
+})
 var url = "https://www.weddingwire.com/c/al-alabama/lighting-decor/24-sca.html";
 request(url, function(error, response, body){
   if (error){
@@ -26,6 +24,11 @@ request(url, function(error, response, body){
   links.each(function(i, link){
       var url= $(link).attr("href");
 
+      var endpoint={
+        url:url,
+
+      }
+      console.log(endpoint);
       console.log(url);
    });
    
@@ -33,8 +36,3 @@ request(url, function(error, response, body){
 
 
 });
-
-
-
-app.listen(port);
-console.log('server running on ' + port);
