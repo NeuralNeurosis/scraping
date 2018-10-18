@@ -44,15 +44,15 @@ request(url, function(error, response, body){
 }
 getLinks(function(err,links){
     if(err) return console.log(err);
-    this is where we open the stream and write the JSON file
-    fs.writeFile('./statelinks.json', JSON.stringify(links, null, 4), (err)=>{
-        if (err) {
-            console.error(err);
-            return;
-        };
-        console.log("File Has been Created");
+    // fs.writeFile('./statelinks.json', JSON.stringify(links, null, 4), (err)=>{
+    //     if (err) {
+    //         console.error(err);
+    //         return;
+    //     };
+    //     console.log("File Has been Created");
 
-    });
+    // });
+    
     console.log(links);
 
 });
