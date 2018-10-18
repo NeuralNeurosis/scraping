@@ -1,21 +1,22 @@
 var request = require('request');
 var cheerio = require('cheerio');
 var fs = require('fs-extra');
+var firebase = require('firebase').initializeApp({
+    serviceAccount:"./ww-vendors-03b87c67e2de.json",
+    databaseURL:"https://ww-vendors.firebaseio.com/"
+});
+var pageNum= 4;
+var page= pageNum.toString()
+var baseURI =" https://www.weddingwire.com/lighting-decor?page="+ page;
+var ref =firebase.database().ref().child('vendors-contact');
 
-var baseURI =" https://www.weddingwire.com/lighting-decor?page="+ pageNum
-var pageNum= "2";
 getVendorContactAsync()
 .then(function(data){
-    fs.writeFile('./returned data/promises/vc2.json', JSON.stringify(data, null, 4), (err)=>{
-        if (err) {
-            console.error(err);
-            return;
-        };
-        console.log("File Has been Created");
-
-    });
-    console.log(data);
+     ref.push(pageNum);
+    console.log(pageNum);
+   
 })
+
 .catch(function(err){
     console.log(err);
 });
@@ -23,6 +24,9 @@ getVendorContactAsync()
 
 function getVendorEndPointsAsync(){
     return new Promise(function(resolve, reject){
+        
+        
+
         request(baseURI, function(error, response, body){
 
             if (!error){
@@ -35,7 +39,9 @@ function getVendorEndPointsAsync(){
                       var urlText= $(link).attr("href");
                       storage.push(urlText);
                   });
+                  
                 var storageUrl = storage;
+                console.log(baseURI);
              resolve(storageUrl);
             }else{
                 reject('SHITTTTTTT ');
@@ -51,8 +57,12 @@ function getVendorContactAsync(){
             
             return new Promise(function (resolve, reject){
 
+
                 request(endpoint, function(error, response, body){
                     if(!error) {
+                        
+                        
+
                         var $ = cheerio.load(body);
                         var companyName =$('.storefrontHeader__title');
                         var companyNameText = companyName.text();
@@ -73,7 +83,9 @@ function getVendorContactAsync(){
                         location:locationText1,
                         telephone:telephoneText1
                         };
-                        resolve(ven);
+
+                       
+                        resolve( ref.push(ven));
     
     
                         // console.log(ven);
@@ -87,13 +99,15 @@ function getVendorContactAsync(){
         return Promise.all(promises);
         })
         .then(function(data){
+                  
             return data;
+            
         })
         .catch(function(err){
             return Promise.reject(err);
         });
-    }
-    
+    }  
+
 
 
 
