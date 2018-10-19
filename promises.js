@@ -24,9 +24,6 @@ getVendorContactAsync()
 
 function getVendorEndPointsAsync(){
     return new Promise(function(resolve, reject){
-        
-        
-
         request(baseURI, function(error, response, body){
 
             if (!error){
