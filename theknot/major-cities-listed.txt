@@ -1,0 +1,98 @@
+New York, NY
+Long Island, NY
+Los Angeles, CA
+Twin Cities, MN
+Chicago, IL
+Toronto, ON
+Brooklyn, NY
+Queens, NY
+Houston, TX
+Manhattan, NY 
+Philadelphia, PA 
+Phoenix, AZ 
+Bronx, NYThe Bronx, NY
+San Antonio, TX
+San Diego, CA
+Dallas, TXCalgary, AB
+Honolulu, HI
+Westchester, NY
+Fairfield, CT
+Ottowa, ON
+Austin, TX
+Ottawa, ON
+Indianapolis, IN
+Jacksonville, FL
+Ventura, CA
+San Francisco, CA
+Columbus, OH
+Charlotte, NC
+Fort Worth, TX
+Mississauga, ON
+Detroit, MI
+Norfolk, MA
+El Paso, TX
+Jefferson, AL
+Memphis, TN
+Seattle, WA
+Denver, CO
+Washington, DC
+Boston, MA
+Nashville, TN
+Baltimore, MD
+Oklahoma City, OK
+Louisville, KY
+Portland, OR
+Arapahoe, CO
+Las Vegas, NV
+Milwaukee, WI
+Brampton, ON
+Johnson, KS
+Albuquerque, NM
+Jefferson, CO
+Hamilton, ON
+Quebec City, QC
+Tucson, AZ
+Kane, IL
+Surrey, BC
+Quebec, QC
+Fresno, CA
+Chester, PA
+Passaic, NJ
+Sedgwick, KS
+Plymouth, MA
+Brookhaven, NY
+Sacramento, CA
+Long Beach, CA
+Hampden, MA
+Mesa, AZ
+Virginia Beach, VA
+Atlanta, GA
+Colorado Springs, CO
+Omaha, NE
+Raleigh, NC
+Laval, QC
+Miami, FL
+Genesee, MI
+Oakland, CA
+Hill, NH
+Halifax, NS
+Minneapolis, MN
+Richland, SC
+Tulsa, OK
+Clackamas, OR
+Wichita, KS
+London, ON
+Arlington, TX
+New Orleans, LA
+Bakersfield, CA
+Baker, CA
+Tampa, FL
+Anaheim, CA
+Islip, NY
+Santa Ana, CA
+Somerset, NJ
+Markham, ON
+Chesterfield, VA
+Chester, VA
+Cumberland, NC
+Henrico, VA blue
